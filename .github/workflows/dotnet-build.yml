@@ -1,11 +1,11 @@
 name: .NET Build
 
 on:
-  push: # Configura o workflow para ser acionado sempre que houver um push para qualquer branch do repositório.
+  push:
     branches:
       - '**' # Monitora todos os branches
   schedule:
-    - cron: '0 * * * *' # Executa no início de cada hora
+    - cron: '0 * * * *' # Executa a cada hora
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0' # Substitua pela versão do .NET necessária
+          dotnet-version: '7.0' # Substitua pela versão do .NET necessária
 
       - name: Restore dependencies
         run: dotnet restore
